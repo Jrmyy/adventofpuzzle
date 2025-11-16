@@ -42,6 +42,14 @@ func (p Point) Dist(o Point) int {
 	return Abs(p.X-o.X) + Abs(p.Y-o.Y) + Abs(p.Z-o.Z)
 }
 
+func (p Point) TurnLeft2D() Point {
+	return Point{X: -p.Y, Y: p.X, Z: p.Z}
+}
+
+func (p Point) TurnRight2D() Point {
+	return Point{X: p.Y, Y: -p.X, Z: p.Z}
+}
+
 type Octahedron struct {
 	Center Point
 	R      int
