@@ -50,19 +50,6 @@ func (p Point) TurnRight2D() Point {
 	return Point{X: p.Y, Y: -p.X, Z: p.Z}
 }
 
-type Octahedron struct {
-	Center Point
-	R      int
-}
-
-func (o Octahedron) Overlaps(other Octahedron) bool {
-	return o.Center.Dist(other.Center) <= o.R
-}
-
-func (o Octahedron) Contains(p Point) bool {
-	return o.Center.Dist(p) <= o.R
-}
-
 type Edges[T comparable] map[T]int
 
 // Graph structure represents a weighted graph, with a mapping between the vertices and their edges to the
