@@ -222,3 +222,7 @@ aoc-python/.venv
 aoc-go/**/input.txt
 aoc-python/**/day*.txt
 aoc-kotlin/src/main/resources/**/day*.txt
+
+# AOS volume
+aos/pgdata/
+aos/**/input.sql

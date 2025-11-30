@@ -1,4 +1,6 @@
-# 🎄 Advent of Code 🎄
+# 🎄 Advent calendar puzzling games 🎄
+
+## Advent of Code 🧑🏻‍💻
 
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
@@ -17,3 +19,9 @@ Advent of code submissions in Go, Kotlin & Python. Ambition is to fulfill all da
 [![AoC 2022](https://img.shields.io/badge/2022-★_50-44cc11)](https://adventofcode.com/2022)
 [![AoC 2023](https://img.shields.io/badge/2023-★_50-44cc11)](https://adventofcode.com/2023)
 [![AoC 2024](https://img.shields.io/badge/2024-★_50-44cc11)](https://adventofcode.com/2024)
+
+## Advent of SQL 📊
+
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+[![AoS 2024](https://img.shields.io/badge/2024-★_24-44cc11)](https://adventofsql.com/)
