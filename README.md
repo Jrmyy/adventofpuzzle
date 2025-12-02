@@ -22,7 +22,7 @@ The ambition is to complete all days of all events... 😬
 | [2022](https://adventofcode.com/2022) | ![AoC 2022](https://img.shields.io/badge/2022-★_50-44cc11) | Completed |
 | [2023](https://adventofcode.com/2023) | ![AoC 2023](https://img.shields.io/badge/2023-★_50-44cc11) | Completed |
 | [2024](https://adventofcode.com/2024) | ![AoC 2024](https://img.shields.io/badge/2024-★_50-44cc11) | Completed |
-| [2025](https://adventofcode.com/2025) | ![AoC 2025](https://img.shields.io/badge/2025-★_02-ee4b2b) | In Progress |
+| [2025](https://adventofcode.com/2025) | ![AoC 2025](https://img.shields.io/badge/2025-★_04-ee4b2b) | In Progress |
 
 ---
 
