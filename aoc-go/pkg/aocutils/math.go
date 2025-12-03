@@ -37,3 +37,35 @@ func Abs(i int) int {
 	}
 	return i
 }
+
+func ModPow(base, exponent, mod int64) int64 {
+	var result int64 = 1
+	base = (base + mod) % mod
+	exponent = (exponent + mod) % mod
+	for exponent > 0 {
+		if exponent%2 == 1 {
+			result = ModMultiply(result, base, mod)
+		}
+		exponent /= 2
+		base = ModMultiply(base, base, mod)
+	}
+	return result
+}
+
+func ModMultiply(a, b, mod int64) int64 {
+	var result int64 = 0
+	a = (a + mod) % mod
+	b = (b + mod) % mod
+	for a != 0 {
+		if a%2 == 1 {
+			result = (result + b) % mod
+		}
+		a /= 2
+		b = (b * 2) % mod
+	}
+	return (result + mod) % mod
+}
+
+func ModInv(a, n int64) int64 {
+	return ModPow(a, n-2, n)
+}

@@ -12,24 +12,36 @@ import (
 //go:embed input.txt
 var inputFile embed.FS
 
-func runPartOne(operations []internal.Operation) int {
-	deck := createDeck(10007)
-	deck = shuffle(deck, operations)
-	return findPosition(deck, 2019)
+func runPartOne(shuffles []internal.Shuffle) int64 {
+	process := internal.ShuffleProcess{
+		Shuffles:    shuffles,
+		DeckSize:    10_007,
+		Repetitions: 1,
+	}
+	return process.GetCardPosition(2019)
 }
 
-func parseInput() []internal.Operation {
+func runPartTwo(shuffles []internal.Shuffle) int64 {
+	process := internal.ShuffleProcess{
+		Shuffles:    shuffles,
+		DeckSize:    119_315_717_514_047,
+		Repetitions: 101_741_582_076_661,
+	}
+	return process.GetCardAtPosition(2020)
+}
+
+func parseInput() []internal.Shuffle {
 	lines := aocutils.MustGetDayInput(inputFile)
-	operations := make([]internal.Operation, len(lines))
+	operations := make([]internal.Shuffle, len(lines))
 	for i, line := range lines {
 		if strings.HasPrefix(line, "deal into new stack") {
-			operations[i] = internal.NewDeckOperation{}
+			operations[i] = internal.DealIntoNewStackShuffle{}
 		} else if strings.HasPrefix(line, "cut ") {
 			cutValue := aocutils.MustStringToInt(strings.TrimPrefix(line, "cut "))
-			operations[i] = internal.CutOperation{Value: cutValue}
+			operations[i] = internal.CutShuffle{Value: int64(cutValue)}
 		} else if strings.HasPrefix(line, "deal with increment ") {
 			incrementValue := aocutils.MustStringToInt(strings.TrimPrefix(line, "deal with increment "))
-			operations[i] = internal.IncrementOperation{Value: incrementValue}
+			operations[i] = internal.DealWithIncrementShuffle{Value: int64(incrementValue)}
 		} else {
 			panic("cannot parse operation")
 		}
@@ -37,31 +49,8 @@ func parseInput() []internal.Operation {
 	return operations
 }
 
-func createDeck(deckSize int) []int {
-	deck := make([]int, deckSize)
-	for i := 0; i < deckSize; i++ {
-		deck[i] = i
-	}
-	return deck
-}
-
-func shuffle(deck []int, operations []internal.Operation) []int {
-	for _, op := range operations {
-		deck = op.Operate(deck)
-	}
-	return deck
-}
-
-func findPosition(deck []int, searchedCard int) int {
-	for idx, card := range deck {
-		if card == searchedCard {
-			return idx
-		}
-	}
-	panic("not found")
-}
-
 func main() {
-	operations := parseInput()
-	fmt.Println(runPartOne(operations))
+	shuffles := parseInput()
+	fmt.Println(runPartOne(shuffles))
+	fmt.Println(runPartTwo(shuffles))
 }

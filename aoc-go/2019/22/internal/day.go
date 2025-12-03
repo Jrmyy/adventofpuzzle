@@ -1,45 +1,63 @@
 package internal
 
-type Operation interface {
-	Operate(deck []int) []int
+import (
+	"adventofcode-go/pkg/aocutils"
+)
+
+type ShuffleProcess struct {
+	Shuffles    []Shuffle
+	DeckSize    int64
+	Repetitions int64
 }
 
-type NewDeckOperation struct{}
+func (process ShuffleProcess) GetCardPosition(card int64) int64 {
+	mA, mB := process.compose()
+	return (aocutils.ModMultiply(mA, card, process.DeckSize) + mB) % process.DeckSize
+}
 
-func (op NewDeckOperation) Operate(deck []int) []int {
-	var newDeck []int
-	for _, card := range deck {
-		newDeck = append([]int{card}, newDeck...)
+func (process ShuffleProcess) GetCardAtPosition(position int64) int64 {
+	mA, mB := process.compose()
+	return aocutils.ModMultiply(position-mB, aocutils.ModInv(mA, process.DeckSize), process.DeckSize)
+}
+
+func (process ShuffleProcess) compose() (int64, int64) {
+	var a, b int64 = 1, 0
+	for _, shuffle := range process.Shuffles {
+		opA, opB := shuffle.GetLinearCoefficients()
+		a = aocutils.ModMultiply(a, opA, process.DeckSize)
+		b = (aocutils.ModMultiply(b, opA, process.DeckSize) + opB) % process.DeckSize
 	}
-	return newDeck
+	mA := aocutils.ModPow(a, process.Repetitions, process.DeckSize)
+	mB := aocutils.ModMultiply(
+		aocutils.ModMultiply(b, mA-1, process.DeckSize),
+		aocutils.ModInv(a-1, process.DeckSize),
+		process.DeckSize,
+	)
+	return mA, mB
 }
 
-type CutOperation struct {
-	Value int
+type Shuffle interface {
+	GetLinearCoefficients() (int64, int64)
 }
 
-func (op CutOperation) Operate(deck []int) []int {
-	var cutIndex int
-	if op.Value >= 0 {
-		cutIndex = op.Value
-	} else {
-		cutIndex = len(deck) + op.Value
-	}
-	return append(deck[cutIndex:], deck[:cutIndex]...)
+type DealIntoNewStackShuffle struct{}
+
+func (op DealIntoNewStackShuffle) GetLinearCoefficients() (int64, int64) {
+	return -1, -1
 }
 
-type IncrementOperation struct {
-	Value int
+type CutShuffle struct {
+	Value int64
 }
 
-func (op IncrementOperation) Operate(deck []int) []int {
-	incrementedDeck := make([]int, len(deck))
-	for i, card := range deck {
-		newIdx := (op.Value * i) % len(deck)
-		if incrementedDeck[newIdx] != 0 {
-			panic("overriding existing card")
-		}
-		incrementedDeck[newIdx] = card
-	}
-	return incrementedDeck
+func (op CutShuffle) GetLinearCoefficients() (int64, int64) {
+	return 1, -op.Value
+}
+
+type DealWithIncrementShuffle struct {
+	Value int64
+}
+
+func (op DealWithIncrementShuffle) GetLinearCoefficients() (int64, int64) {
+	return op.Value, 0
 }
