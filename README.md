@@ -13,16 +13,16 @@ The ambition is to complete all days of all events... 😬
 ### Progress by Year
 | Year | Progress | Link |
 |------|----------|------|
-| [2015](https://adventofcode.com/2015) | ![AoC 2015](https://img.shields.io/badge/2015-★_50-44cc11) | Completed |
-| [2016](https://adventofcode.com/2016) | ![AoC 2016](https://img.shields.io/badge/2016-★_50-44cc11) | Completed |
-| [2018](https://adventofcode.com/2018) | ![AoC 2018](https://img.shields.io/badge/2018-★_47-bcb01b) | In Progress |
-| [2019](https://adventofcode.com/2019) | ![AoC 2019](https://img.shields.io/badge/2019-★_46-bcb01b) | In Progress |
-| [2020](https://adventofcode.com/2020) | ![AoC 2020](https://img.shields.io/badge/2020-★_50-44cc11) | Completed |
-| [2021](https://adventofcode.com/2021) | ![AoC 2021](https://img.shields.io/badge/2021-★_50-44cc11) | Completed |
-| [2022](https://adventofcode.com/2022) | ![AoC 2022](https://img.shields.io/badge/2022-★_50-44cc11) | Completed |
-| [2023](https://adventofcode.com/2023) | ![AoC 2023](https://img.shields.io/badge/2023-★_50-44cc11) | Completed |
-| [2024](https://adventofcode.com/2024) | ![AoC 2024](https://img.shields.io/badge/2024-★_50-44cc11) | Completed |
-| [2025](https://adventofcode.com/2025) | ![AoC 2025](https://img.shields.io/badge/2025-★_04-ee4b2b) | In Progress |
+| [2015](https://adventofcode.com/2015) | ![AoC 2015](https://img.shields.io/badge/-★_50-44cc11) | Completed |
+| [2016](https://adventofcode.com/2016) | ![AoC 2016](https://img.shields.io/badge/-★_50-44cc11) | Completed |
+| [2018](https://adventofcode.com/2018) | ![AoC 2018](https://img.shields.io/badge/-★_47-bcb01b) | In Progress |
+| [2019](https://adventofcode.com/2019) | ![AoC 2019](https://img.shields.io/badge/-★_46-bcb01b) | In Progress |
+| [2020](https://adventofcode.com/2020) | ![AoC 2020](https://img.shields.io/badge/-★_50-44cc11) | Completed |
+| [2021](https://adventofcode.com/2021) | ![AoC 2021](https://img.shields.io/badge/-★_50-44cc11) | Completed |
+| [2022](https://adventofcode.com/2022) | ![AoC 2022](https://img.shields.io/badge/-★_50-44cc11) | Completed |
+| [2023](https://adventofcode.com/2023) | ![AoC 2023](https://img.shields.io/badge/-★_50-44cc11) | Completed |
+| [2024](https://adventofcode.com/2024) | ![AoC 2024](https://img.shields.io/badge/-★_50-44cc11) | Completed |
+| [2025](https://adventofcode.com/2025) | ![AoC 2025](https://img.shields.io/badge/-★_06-ff7f50) | In Progress |
 
 ---
 
@@ -36,4 +36,4 @@ Advent of SQL submissions using **PostgreSQL**.
 ### Progress by Year
 | Year | Progress | Link |
 |------|----------|------|
-| [2024](https://adventofsql.com/) | ![AoS 2024](https://img.shields.io/badge/2024-★_24-44cc11) | Completed |
+| [2024](https://adventofsql.com/) | ![AoS 2024](https://img.shields.io/badge/-★_24-44cc11) | Completed |
