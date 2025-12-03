@@ -1,5 +1,7 @@
 package aocutils
 
+import "math"
+
 func GcdList(l []int) int {
 	g := l[1]
 	for _, i := range l[1:] {
@@ -68,4 +70,8 @@ func ModMultiply(a, b, mod int64) int64 {
 
 func ModInv(a, n int64) int64 {
 	return ModPow(a, n-2, n)
+}
+
+func Pow(base, exponent int) int {
+	return int(math.Pow(float64(base), float64(exponent)))
 }

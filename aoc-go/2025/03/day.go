@@ -11,37 +11,38 @@ import (
 //go:embed input.txt
 var inputFile embed.FS
 
-type batteriesBank []string
+type batteriesBank []int
 
-func (batteriesBank batteriesBank) FindLargestJoltage(size int) int {
-	toFind := size
-	parts := make([]string, size)
-	lastFoundIdx := -1
-
-	for toFind > 0 {
-		localMax := -1
-		selectedBattery := ""
-		offset := lastFoundIdx + 1
-
-		for idx, battery := range batteriesBank[offset : len(batteriesBank)-toFind+1] {
-			if batteryValue := aocutils.MustStringToInt(battery); batteryValue > localMax {
-				localMax = batteryValue
-				selectedBattery = battery
-				lastFoundIdx = offset + idx
-			}
-		}
-
-		parts[size-toFind] = selectedBattery
-		toFind--
+func (batteriesBank batteriesBank) FindLargestJoltage(size, offsetIdx int) int {
+	if size == 0 {
+		return 0
 	}
 
-	return aocutils.MustStringToInt(strings.Join(parts, ""))
+	largestJoltage, largestJoltageIdx := batteriesBank.findLocalLargestJoltage(size, offsetIdx)
+	return largestJoltage*aocutils.Pow(10, size-1) + batteriesBank.FindLargestJoltage(size-1, largestJoltageIdx+1)
+}
+
+func (batteriesBank batteriesBank) findLocalLargestJoltage(size, offsetIdx int) (int, int) {
+	localLargestJoltage := -1
+	localLargestJoltageIdx := -1
+	for idx, battery := range batteriesBank[offsetIdx : len(batteriesBank)-size+1] {
+		if battery > localLargestJoltage {
+			localLargestJoltage = battery
+			localLargestJoltageIdx = offsetIdx + idx
+		}
+	}
+
+	return localLargestJoltage, localLargestJoltageIdx
 }
 
 func parseInput(lines []string) []batteriesBank {
 	banks := make([]batteriesBank, len(lines))
 	for idx, line := range lines {
-		bank := strings.Split(line, "")
+		rawBank := strings.Split(line, "")
+		bank := make([]int, len(rawBank))
+		for lIdx, s := range rawBank {
+			bank[lIdx] = aocutils.MustStringToInt(s)
+		}
 		banks[idx] = bank
 	}
 	return banks
@@ -58,7 +59,7 @@ func runPartTwo(batteriesBanks []batteriesBank) int {
 func findTotalJoltage(batteriesBanks []batteriesBank, batteriesToTurnOn int) int {
 	totalJoltage := 0
 	for _, b := range batteriesBanks {
-		totalJoltage += b.FindLargestJoltage(batteriesToTurnOn)
+		totalJoltage += b.FindLargestJoltage(batteriesToTurnOn, 0)
 	}
 	return totalJoltage
 }
