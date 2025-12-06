@@ -2,8 +2,7 @@
 
 ## 🌟 Advent of Code 🧑🏻‍💻
 
-Advent of Code submissions in **Go**, **Kotlin**, and **Python**.  
-The ambition is to complete all days of all events... 😬
+Advent of Code submissions in either **Go**, **Kotlin**, or **Python**, depending on the mood or through the years.  
 
 ### Languages Used
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
@@ -16,7 +15,7 @@ The ambition is to complete all days of all events... 😬
 | [2015](https://adventofcode.com/2015) | ![AoC 2015](https://img.shields.io/badge/-★_50-0bda51) | Completed |
 | [2016](https://adventofcode.com/2016) | ![AoC 2016](https://img.shields.io/badge/-★_50-0bda51) | Completed |
 | [2017](https://adventofcode.com/2017) | ![AoC 2017](https://img.shields.io/badge/-★_50-0bda51) | Completed |
-| [2018](https://adventofcode.com/2018) | ![AoC 2018](https://img.shields.io/badge/-★_47-dfff00) | In Progress |
+| [2018](https://adventofcode.com/2018) | ![AoC 2018](https://img.shields.io/badge/-★_50-0bda51) | Completed |
 | [2019](https://adventofcode.com/2019) | ![AoC 2019](https://img.shields.io/badge/-★_50-0bda51) | Completed |
 | [2020](https://adventofcode.com/2020) | ![AoC 2020](https://img.shields.io/badge/-★_50-0bda51) | Completed |
 | [2021](https://adventofcode.com/2021) | ![AoC 2021](https://img.shields.io/badge/-★_50-0bda51) | Completed |
