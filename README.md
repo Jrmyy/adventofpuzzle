@@ -1,8 +1,6 @@
 # 🎄 Advent Calendar Puzzling Games 🎄
 
-## 🌟 Advent of Code 🧑🏻‍💻
-
-Advent of Code submissions in either **Go**, **Kotlin**, or **Python**, depending on the mood or through the years.  
+## 🧑🏻‍💻 Advent of Code
 
 ### Languages Used
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
@@ -27,8 +25,6 @@ Advent of Code submissions in either **Go**, **Kotlin**, or **Python**, dependin
 ---
 
 ## 📊 Advent of SQL
-
-Advent of SQL submissions using **PostgreSQL**.
 
 ### Technology Used
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)

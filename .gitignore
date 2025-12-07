@@ -157,7 +157,7 @@ $RECYCLE.BIN/
 
 # Package Files #
 *.jar
-aoc-kotlin/gradle/wrapper/gradle-wrapper.jar
+adventofcode/kotlin/gradle/wrapper/gradle-wrapper.jar
 *.war
 *.nar
 *.ear
@@ -216,13 +216,16 @@ GitHub.sublime-settings
 .nfs*
 
 # Python
-aoc-python/.venv
+adventofcode/python/.venv
 
 # AOC days input files
-aoc-go/**/input.txt
-aoc-python/**/day*.txt
-aoc-kotlin/src/main/resources/**/day*.txt
+adventofcode/go/**/input.txt
+adventofcode/python/**/day*.txt
+adventofcode/kotlin/src/main/resources/**/day*.txt
 
 # AOS volume
-aos/pgdata/
-aos/**/input.sql
+adventofsql/pgdata/
+adventofsql/**/input.sql
+
+# Everybody codes input files
+everybodycodes/**/input_*.txt
