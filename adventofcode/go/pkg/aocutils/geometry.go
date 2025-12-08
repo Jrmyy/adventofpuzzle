@@ -38,7 +38,7 @@ func (p Point) Sub(o Point) Point {
 	return Point{X: p.X - o.X, Y: p.Y - o.Y, Z: p.Z - o.Z}
 }
 
-func (p Point) Dist(o Point) int {
+func (p Point) ManhattanDist(o Point) int {
 	return Abs(p.X-o.X) + Abs(p.Y-o.Y) + Abs(p.Z-o.Z)
 }
 

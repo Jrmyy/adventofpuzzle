@@ -47,7 +47,7 @@ func getCheatsCount(ipt []string, allowedCheatDuration int) int {
 	for p, d := range dist {
 		for pp, dd := range dist {
 			if p != pp {
-				cheatDist := p.Dist(pp)
+				cheatDist := p.ManhattanDist(pp)
 				realDist := d - dd
 				if cheatDist <= allowedCheatDuration && realDist-cheatDist >= 100 {
 					cnt++

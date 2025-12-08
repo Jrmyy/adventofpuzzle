@@ -20,11 +20,11 @@ type nanobot struct {
 }
 
 func (n nanobot) Overlaps(other nanobot) bool {
-	return n.Center.Dist(other.Center) <= n.Radius
+	return n.Center.ManhattanDist(other.Center) <= n.Radius
 }
 
 func (n nanobot) Contains(p aocutils.Point) bool {
-	return n.Center.Dist(p) <= n.Radius
+	return n.Center.ManhattanDist(p) <= n.Radius
 }
 
 func parseInput(lines []string) []nanobot {
