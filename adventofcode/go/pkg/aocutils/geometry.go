@@ -42,6 +42,12 @@ func (p Point) Dist(o Point) int {
 	return Abs(p.X-o.X) + Abs(p.Y-o.Y) + Abs(p.Z-o.Z)
 }
 
+func (p Point) EuclideanDist(o Point) float64 {
+	return math.Sqrt(
+		math.Pow(float64(p.X-o.X), 2) + math.Pow(float64(p.Y-o.Y), 2) + math.Pow(float64(p.Z-o.Z), 2),
+	)
+}
+
 func (p Point) TurnLeft2D() Point {
 	return Point{X: -p.Y, Y: p.X, Z: p.Z}
 }

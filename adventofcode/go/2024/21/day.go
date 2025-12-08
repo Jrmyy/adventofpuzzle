@@ -13,11 +13,6 @@ import (
 //go:embed input.txt
 var inputFile embed.FS
 
-type Pair[T comparable] struct {
-	First  T
-	Second T
-}
-
 var numericPad = map[string]aocutils.Point{
 	"7": {X: 0, Y: 0},
 	"8": {X: 1, Y: 0},
@@ -52,7 +47,7 @@ var cache = map[string]int{}
 var optimalNumericPaths = generateNumericPadOptimalPaths()
 var optimalDirectionalPaths = generateDirectionalPadOptimalPaths()
 
-func generateNumericPadOptimalPaths() map[Pair[string]][]string {
+func generateNumericPadOptimalPaths() map[aocutils.Pair[string]][]string {
 	numGraph := aocutils.Graph[string]{
 		"A": aocutils.Edges[string]{
 			"0": 1,
@@ -108,7 +103,7 @@ func generateNumericPadOptimalPaths() map[Pair[string]][]string {
 		},
 	}
 
-	paths := map[Pair[string]][]string{}
+	paths := map[aocutils.Pair[string]][]string{}
 
 	for s := range numGraph {
 		_, prevs := numGraph.Dijkstra(s)
@@ -130,7 +125,7 @@ func generateNumericPadOptimalPaths() map[Pair[string]][]string {
 						allSubPathsWithMinEntropy = append(allSubPathsWithMinEntropy, subPath)
 					}
 				}
-				paths[Pair[string]{First: s, Second: o}] = allSubPathsWithMinEntropy
+				paths[aocutils.Pair[string]{First: s, Second: o}] = allSubPathsWithMinEntropy
 			}
 		}
 	}
@@ -138,7 +133,7 @@ func generateNumericPadOptimalPaths() map[Pair[string]][]string {
 	return paths
 }
 
-func generateDirectionalPadOptimalPaths() map[Pair[string]][]string {
+func generateDirectionalPadOptimalPaths() map[aocutils.Pair[string]][]string {
 	dirGraph := aocutils.Graph[string]{
 		"A": aocutils.Edges[string]{
 			"^": 1,
@@ -162,7 +157,7 @@ func generateDirectionalPadOptimalPaths() map[Pair[string]][]string {
 		},
 	}
 
-	paths := map[Pair[string]][]string{}
+	paths := map[aocutils.Pair[string]][]string{}
 
 	for s := range dirGraph {
 		_, prevs := dirGraph.Dijkstra(s)
@@ -184,7 +179,7 @@ func generateDirectionalPadOptimalPaths() map[Pair[string]][]string {
 						allSubPathsWithMinEntropy = append(allSubPathsWithMinEntropy, subPath)
 					}
 				}
-				paths[Pair[string]{First: s, Second: o}] = allSubPathsWithMinEntropy
+				paths[aocutils.Pair[string]{First: s, Second: o}] = allSubPathsWithMinEntropy
 			}
 		}
 	}
@@ -212,12 +207,12 @@ func findAllSubPaths(pad map[string]aocutils.Point, prevs map[string][]string, f
 	return allSubPaths
 }
 
-func pathsForSequence(optimalPaths map[Pair[string]][]string, code string) [][]string {
+func pathsForSequence(optimalPaths map[aocutils.Pair[string]][]string, code string) [][]string {
 	possibleSequences := [][]string{{""}}
 	start := "A"
 	for _, c := range code {
 		dest := string(c)
-		unaryOptimalPaths := optimalPaths[Pair[string]{First: start, Second: dest}]
+		unaryOptimalPaths := optimalPaths[aocutils.Pair[string]{First: start, Second: dest}]
 		if len(unaryOptimalPaths) == 0 {
 			for idx := range possibleSequences {
 				possibleSequences[idx] = append(possibleSequences[idx], "A")
@@ -241,7 +236,7 @@ func pathsForSequence(optimalPaths map[Pair[string]][]string, code string) [][]s
 	return possibleSequences
 }
 
-func getShortestSequenceLength(code string, depth int, optimalPaths map[Pair[string]][]string) int {
+func getShortestSequenceLength(code string, depth int, optimalPaths map[aocutils.Pair[string]][]string) int {
 	repr := fmt.Sprintf("%s||%d", code, depth)
 	if v, ok := cache[repr]; ok {
 		return v
