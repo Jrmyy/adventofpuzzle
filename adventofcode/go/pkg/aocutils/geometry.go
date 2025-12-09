@@ -56,6 +56,14 @@ func (p Point) TurnRight2D() Point {
 	return Point{X: p.Y, Y: -p.X, Z: p.Z}
 }
 
+func (p Point) MinMax(o Point) (minX, maxX, minY, maxY int) {
+	minX = min(p.X, o.X)
+	maxX = max(p.X, o.X)
+	minY = min(p.Y, o.Y)
+	maxY = max(p.Y, o.Y)
+	return
+}
+
 type Edges[T comparable] map[T]int
 
 // Graph structure represents a weighted graph, with a mapping between the vertices and their edges to the
