@@ -20,7 +20,7 @@
 | [2022](https://adventofcode.com/2022) | ![AoC 2022](https://img.shields.io/badge/-★_50-0bda51) | Completed |
 | [2023](https://adventofcode.com/2023) | ![AoC 2023](https://img.shields.io/badge/-★_50-0bda51) | Completed |
 | [2024](https://adventofcode.com/2024) | ![AoC 2024](https://img.shields.io/badge/-★_50-0bda51) | Completed |
-| [2025](https://adventofcode.com/2025) | ![AoC 2025](https://img.shields.io/badge/-★_20-fdda0d) | In Progress |
+| [2025](https://adventofcode.com/2025) | ![AoC 2025](https://img.shields.io/badge/-★_22-fdda0d) | In Progress |
 
 ---
 
