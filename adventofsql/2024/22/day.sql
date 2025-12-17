@@ -1,15 +1,13 @@
 with
-    skills as (
-        select
-            id
-            , unnest(string_to_array(skills, ',')) as skill
-        from
-            elves
-    )
+  skills as (
+    select
+      id
+      , unnest(string_to_array(skills, ',')) as skill
+    from elves
+  )
 
 select
-    count(distinct id) as numofelveswithsql
-from
-    skills
+  count(distinct id) as numofelveswithsql
+from skills
 where
-    lower(skill) = 'sql'
+  lower(skill) = 'sql'

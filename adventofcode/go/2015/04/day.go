@@ -17,14 +17,14 @@ import (
 //go:embed input.txt
 var inputFile embed.FS
 
-func findSmallestPasscode(secretKey string, prefix string, start, step int, minValue *atomic.Int64) {
+func findSmallestPasscode(secretKey string, prefix string, start, step int, sharedMinValue *atomic.Int64) {
 	i := start
 	for {
 		code := secretKey + strconv.Itoa(i)
 		sum := md5.Sum([]byte(code))
 		hash := hex.EncodeToString(sum[:])
 
-		currentMinValue := minValue.Load()
+		currentMinValue := sharedMinValue.Load()
 		currentValue := int64(i)
 
 		if currentValue >= currentMinValue {
@@ -32,7 +32,7 @@ func findSmallestPasscode(secretKey string, prefix string, start, step int, minV
 		}
 
 		if strings.HasPrefix(hash, prefix) {
-			minValue.CompareAndSwap(currentMinValue, min(minValue.Load(), currentValue))
+			sharedMinValue.CompareAndSwap(currentMinValue, min(currentMinValue, currentValue))
 			return
 		}
 
@@ -52,18 +52,18 @@ func findSmallestPasscodeConcurrently(secretKey string, leadingZeros int) int64 
 	numWorkers := 8
 	prefix := strings.Repeat("0", leadingZeros)
 
-	var minValue atomic.Int64
-	minValue.Store(math.MaxInt64)
+	var sharedMinValue atomic.Int64
+	sharedMinValue.Store(math.MaxInt64)
 
 	var wg sync.WaitGroup
 	for i := 0; i < numWorkers; i++ {
 		wg.Go(func() {
-			findSmallestPasscode(secretKey, prefix, i, numWorkers, &minValue)
+			findSmallestPasscode(secretKey, prefix, i, numWorkers, &sharedMinValue)
 		})
 	}
 	wg.Wait()
 
-	return minValue.Load()
+	return sharedMinValue.Load()
 }
 
 func main() {

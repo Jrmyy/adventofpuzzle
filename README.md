@@ -28,8 +28,10 @@
 
 ### Technology Used
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 
 ### Progress by Year
 | Year | Progress | Link |
 |------|----------|------|
 | [2024](https://adventofsql.com/) | ![AoS 2024](https://img.shields.io/badge/-★_24-0bda51) | Completed |
+| [2025](https://www.dbpro.app/advent-of-sql) | ![AoS 2025](https://img.shields.io/badge/-★_17-dad70b) | In Progress |
