@@ -225,7 +225,4 @@ adventofcode/kotlin/src/main/resources/**/day*.txt
 
 # AOS volume
 adventofsql/pgdata/
-adventofsql/**/input.sql
-
-# Everybody codes input files
-everybodycodes/**/input_*.txt
+adventofsql/**/input_*.sql
