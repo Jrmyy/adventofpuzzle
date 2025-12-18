@@ -1,8 +1,15 @@
+with
+  distance_diffs as (
+    select
+      facilities.name
+      , (facilities.x - north_pole.x) as diff_x
+      , (facilities.y - north_pole.y) as diff_y
+    from facilities
+    cross join north_pole
+  )
+
 select
-  facilities.name
-  , (facilities.x - north_pole.x) * (facilities.x - north_pole.x) +
-    (facilities.y - north_pole.y) * (facilities.y - north_pole.y) as distance
-from facilities
-cross join north_pole
-order by 2
+  name
+from distance_diffs
+order by diff_x * diff_x + diff_y * diff_y
 limit 1

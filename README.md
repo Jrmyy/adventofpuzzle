@@ -34,4 +34,4 @@
 | Year | Progress | Link |
 |------|----------|------|
 | [2024](https://adventofsql.com/) | ![AoS 2024](https://img.shields.io/badge/-★_24-0bda51) | Completed |
-| [2025](https://www.dbpro.app/advent-of-sql) | ![AoS 2025](https://img.shields.io/badge/-★_17-dad70b) | In Progress |
+| [2025](https://www.dbpro.app/advent-of-sql) | ![AoS 2025](https://img.shields.io/badge/-★_18-dad70b) | In Progress |
