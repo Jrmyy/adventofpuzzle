@@ -53,20 +53,20 @@ func countDocumentNumbers(v any, ignoreRed bool) (int, error) {
 	}
 }
 
-func runPartOne(jsonStructure any) int {
-	res, err := countDocumentNumbers(jsonStructure, false)
+func countAllDocumentNumbers(jsonStructure any, ignoreRed bool) int {
+	res, err := countDocumentNumbers(jsonStructure, ignoreRed)
 	if err != nil {
 		panic(err)
 	}
 	return res
 }
 
+func runPartOne(jsonStructure any) int {
+	return countAllDocumentNumbers(jsonStructure, false)
+}
+
 func runPartTwo(jsonStructure any) int {
-	res, err := countDocumentNumbers(jsonStructure, true)
-	if err != nil {
-		panic(err)
-	}
-	return res
+	return countAllDocumentNumbers(jsonStructure, true)
 }
 
 func main() {

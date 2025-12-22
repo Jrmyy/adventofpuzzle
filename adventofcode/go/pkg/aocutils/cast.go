@@ -27,3 +27,11 @@ func MustStringToFloat64(s string) float64 {
 	}
 	return f
 }
+
+func Bool2int(b bool) int {
+	var i int
+	if b {
+		i = 1
+	}
+	return i
+}
